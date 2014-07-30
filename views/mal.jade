@@ -1,0 +1,31 @@
+doctype html
+html
+	head
+		title=title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		body
+			div(ng-app="app" ng-controller="AnimeSearchCtrl")
+				form#animeSearch
+					input(type="textbox" ng-model="animeName")
+					button(ng-click="malSearch()") Button
+				form#login
+					input(type="textbox" ng-model="userName")
+					input(type="password" ng-model="passWord")
+					button(ng-click="Login()") Login
+
+				div#myanimelistSearchResult(ng-repeat="MAL in MAL")
+					h1 {{ MAL.title }}
+					p {{ MAL.synopsis }}
+
+				hr
+
+				div#crunchyrollSearchResult(ng-repeat="Seasons in CR.Seasons")
+					h1 {{ Seasons.Title }}
+					p {{ CR.Description }}
+				
+				div#ErrorMessage
+					h1 {{ ErrorMSG }}
+
+			script(type='text/javascript' src='javascripts/lib/angular/angular.js')
+			script(type='text/javascript' src='javascripts/app.js')
+
